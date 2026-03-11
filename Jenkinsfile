@@ -9,7 +9,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/YOUR_GITHUB_USERNAME/ai-helpdesk-platform.git'
+                git branch: 'main', url: 'https://github.com/vigneshkavivk/ai-helpdesk-platform.git'
             }
         }
 
