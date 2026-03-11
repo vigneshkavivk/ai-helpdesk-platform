@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: ai-service
-        image: vignesh/ai-service:latest
+        image: vigneshkavi/ai-service:latest
         ports:
         - containerPort: 5000
