@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: auth-service
-        image: vignesh/auth-service:latest
+        image: vigneshkavi/auth-service:latest
         ports:
         - containerPort: 5000
