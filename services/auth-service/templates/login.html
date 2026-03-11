@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Helpdesk Login</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="login-box">
+<h2>AI Helpdesk Login</h2>
+
+<input id="username" placeholder="Username">
+<input id="password" type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<p id="msg"></p>
+
+</div>
+
+<script>
+function login(){
+
+fetch("/api/login",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+username:document.getElementById("username").value,
+password:document.getElementById("password").value
+})
+})
+.then(res=>res.json())
+.then(data=>{
+if(data.status==="success"){
+window.location="/"
+}else{
+document.getElementById("msg").innerText="Login Failed"
+}
+})
+}
+</script>
+
+</body>
+</html>
