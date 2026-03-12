@@ -13,7 +13,8 @@ users = {
 @app.route("/")
 def home():
     if "user" in session:
-        return f"<h2>Welcome {session['user']} 👋</h2><a href='/logout'>Logout</a>"
+        # Pass the username to the template
+        return render_template("dashboard.html", username=session['user'])
     return redirect(url_for("login_page"))
 
 # Login UI page

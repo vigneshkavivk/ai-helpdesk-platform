@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>AI Helpdesk Dashboard</title>
+<link rel="stylesheet" href="/static/style.css">
+<style>
+    /* Additional styles specifically for the dashboard */
+    .welcome-text {
+        font-size: 32px;
+        margin-bottom: 10px;
+        color: #333;
+    }
+    
+    .user-highlight {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        font-weight: 800;
+    }
+
+    .logout-btn {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 12px 40px;
+        background: linear-gradient(135deg, #ff9966 0%, #ff5e62 100%); /* Orange/Red gradient */
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        box-shadow: 0 10px 20px rgba(255, 94, 98, 0.4);
+        transition: all 0.3s ease;
+    }
+
+    .logout-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(255, 94, 98, 0.6);
+    }
+</style>
+</head>
+<body>
+
+<div class="login-box">
+    <!-- Icon -->
+    <div style="font-size: 50px; margin-bottom: 10px;">🚀</div>
+    
+    <h2 class="welcome-text">
+        Welcome back, <br>
+        <span class="user-highlight">{{ username }}</span>
+    </h2>
+    
+    <p style="color: #666; margin-top: 10px;">You are successfully logged into the AI Helpdesk.</p>
+
+    <a href="/logout" class="logout-btn">Logout</a>
+</div>
+
+</body>
+</html>
