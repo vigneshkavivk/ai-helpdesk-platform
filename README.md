@@ -1,4 +1,6 @@
 **Architecture Overview**
+
+```bash
 User
   ↓
 REST API
@@ -10,6 +12,8 @@ Docker Container
 Kubernetes Deployment
   ↓
 Cloud Infrastructure
+
+```
 
 Super Ippo **pods + services ellam running**. Next step → **application working aa nu test panna vendum**.
 
@@ -169,5 +173,6 @@ http://ai-helpdesk.local/login
 ```
 
 Idhu **real production architecture** 🔥.
+
 
 
