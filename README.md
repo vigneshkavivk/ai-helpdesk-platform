@@ -1,4 +1,17 @@
-Super 👍 Ippo **pods + services ellam running**. Next step → **application working aa nu test panna vendum**.
+Architecture Overview
+User
+  ↓
+REST API
+  ↓
+Microservice (Python AI App)
+  ↓
+Docker Container
+  ↓
+Kubernetes Deployment
+  ↓
+Cloud Infrastructure
+
+Super Ippo **pods + services ellam running**. Next step → **application working aa nu test panna vendum**.
 
 Since services are **ClusterIP** in Kubernetes, direct external access illa. So test panna **3 easy methods** irukku.
 
@@ -156,3 +169,4 @@ http://ai-helpdesk.local/login
 ```
 
 Idhu **real production architecture** 🔥.
+
