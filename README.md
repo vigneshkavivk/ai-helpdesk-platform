@@ -1,4 +1,4 @@
-Architecture Overview
+**Architecture Overview**
 User
   ↓
 REST API
@@ -169,4 +169,5 @@ http://ai-helpdesk.local/login
 ```
 
 Idhu **real production architecture** 🔥.
+
 
