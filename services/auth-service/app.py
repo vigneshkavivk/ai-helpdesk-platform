@@ -17,9 +17,21 @@ def home():
     return redirect(url_for("login_page"))
 
 # UI login page
-@app.route("/login", methods=["GET"])
-def login_page():
-    return render_template("login.html")
+@app.route("/login", methods=["GET","POST"])
+def login():
+
+    if request.method == "GET":
+        return render_template("login.html")
+
+    data = request.json
+    username = data.get("username")
+    password = data.get("password")
+
+    if username in users and users[username] == password:
+        session["user"] = username
+        return jsonify({"status":"success","user":username})
+
+    return jsonify({"status":"failed"}),401
 
 # API login endpoint
 @app.route("/api/login", methods=["POST"])
