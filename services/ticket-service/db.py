@@ -6,6 +6,9 @@ connection = pymysql.connect(
     password="cloudmasa123",
     database="helpdesk",
     cursorclass=pymysql.cursors.DictCursor
+    ssl={
+        "ssl": {}
+    }
 )
 
 def create_ticket(user, message, intent):
