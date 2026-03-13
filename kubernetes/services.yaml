@@ -25,6 +25,7 @@ kind: Service
 metadata:
   name: ticket-service
 spec:
+  type: LoadBalancer
   selector:
     app: ticket-service
   ports:
