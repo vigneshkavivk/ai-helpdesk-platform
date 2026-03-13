@@ -1,7 +1,7 @@
 import pymysql
 
 connection = pymysql.connect(
-    host="helpdesk-db.c7a8xyzabc.us-east-1.rds.amazonaws.com",
+    host="helpdesk-db.cih06ea00gby.us-east-1.rds.amazonaws.com",
     user="admin",
     password="cloudmasa123",
     database="helpdesk",
