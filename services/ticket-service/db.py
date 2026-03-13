@@ -1,17 +1,43 @@
-tickets = []
+import pymysql
 
-def create_ticket(msg):
+connection = pymysql.connect(
+    host="helpdesk-db.c7a8xyzabc.us-east-1.rds.amazonaws.com",
+    user="admin",
+    password="cloudmasa123",
+    database="helpdesk",
+    cursorclass=pymysql.cursors.DictCursor
+)
 
-    ticket = {
-        "id": len(tickets)+1,
-        "message": msg,
-        "status":"open"
+def create_ticket(user, message, intent):
+
+    cursor = connection.cursor()
+
+    query = """
+    INSERT INTO tickets (user, message, intent)
+    VALUES (%s, %s, %s)
+    """
+
+    cursor.execute(query, (user, message, intent))
+    connection.commit()
+
+    ticket_id = cursor.lastrowid
+
+    return {
+        "id": ticket_id,
+        "user": user,
+        "message": message,
+        "intent": intent
     }
-
-    tickets.append(ticket)
-
-    return ticket
 
 
 def get_tickets():
-    return tickets
+
+    cursor = connection.cursor()
+
+    query = "SELECT * FROM tickets"
+
+    cursor.execute(query)
+
+    result = cursor.fetchall()
+
+    return result

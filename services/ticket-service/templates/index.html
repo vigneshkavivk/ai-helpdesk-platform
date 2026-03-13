@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Helpdesk Dashboard</title>
+
+<link rel="stylesheet" href="/static/style.css">
+
+</head>
+
+<body>
+
+<h1 class="title">AI Helpdesk Ticket System</h1>
+
+<div class="container">
+
+<div class="form-box">
+
+<h2>Create Ticket</h2>
+
+<input id="user" placeholder="User Name">
+
+<textarea id="message" placeholder="Describe the issue"></textarea>
+
+<select id="intent">
+<option value="incident">Incident</option>
+<option value="request">Request</option>
+<option value="problem">Problem</option>
+</select>
+
+<button onclick="createTicket()">Create Ticket</button>
+
+</div>
+
+<div class="ticket-box">
+
+<h2>Tickets</h2>
+
+<button onclick="loadTickets()">Refresh</button>
+
+<table id="tickets">
+
+<thead>
+<tr>
+<th>ID</th>
+<th>User</th>
+<th>Message</th>
+<th>Intent</th>
+<th>Time</th>
+</tr>
+</thead>
+
+<tbody></tbody>
+
+</table>
+
+</div>
+
+</div>
+
+
+<script>
+
+function createTicket(){
+
+fetch("/ticket",{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify({
+user:document.getElementById("user").value,
+message:document.getElementById("message").value,
+intent:document.getElementById("intent").value
+})
+})
+.then(res=>res.json())
+.then(data=>{
+alert("Ticket Created ID: "+data.id)
+loadTickets()
+})
+
+}
+
+function loadTickets(){
+
+fetch("/tickets")
+.then(res=>res.json())
+.then(data=>{
+
+let table=""
+
+data.forEach(t=>{
+
+table += `
+<tr>
+<td>${t.id}</td>
+<td>${t.user}</td>
+<td>${t.message}</td>
+<td>${t.intent}</td>
+<td>${t.created_at}</td>
+</tr>
+`
+
+})
+
+document.querySelector("#tickets tbody").innerHTML=table
+
+})
+
+}
+
+loadTickets()
+
+</script>
+
+</body>
+
+</html>
