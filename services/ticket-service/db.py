@@ -5,7 +5,7 @@ connection = pymysql.connect(
     user="admin",
     password="cloudmasa123",
     database="helpdesk",
-    cursorclass=pymysql.cursors.DictCursor
+    cursorclass=pymysql.cursors.DictCursor,
     ssl={
         "ca": "global-bundle.pem"
     }
