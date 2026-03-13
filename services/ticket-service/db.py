@@ -7,7 +7,7 @@ connection = pymysql.connect(
     database="helpdesk",
     cursorclass=pymysql.cursors.DictCursor
     ssl={
-        "ssl": {}
+        "ca": "global-bundle.pem"
     }
 )
 
